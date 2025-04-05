@@ -18,7 +18,7 @@
       nixos = lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration.nix
+          ./host/nixos/configuration.nix
         ];
       };
     };
@@ -26,7 +26,7 @@
         jakeonyx = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-          ./home.nix
+          ./home/jakeonyx/home.nix
         ];
       };
     };

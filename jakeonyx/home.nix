@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 let 
   myAliases = {
-    z = "echo Helllo World from Jake Onyx";
-    c = "clear";
+      c = "clear";
       ll = "ls -l";
       ".." = "cd ..";
   };
@@ -27,7 +26,16 @@ in
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    pkgs.hello
+    zsh
+neovim
+vscode
+go
+rustup
+nodejs
+pnpm
+bat 
+eza
+zellij
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -79,7 +87,12 @@ in
   };
   programs.zsh= {
     enable = true;
-    shellAliases =  myAliases; };
+    shellAliases =  myAliases; 
+promptInit= = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    oh-my-zsh.enable = true;
+    oh-my-zsh.plugins = [ "git" "node" "docker" ];
+enableSyntaxHighlighting = true;
+};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

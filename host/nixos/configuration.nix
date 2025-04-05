@@ -9,15 +9,12 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh
-
-  networking.hostName = "jakeonyx"; # Define your hostname.
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -47,6 +44,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -59,12 +57,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-#Fonts
- fonts.packages = with pkgs; [
-    meslo-lgs-nf 
-  ];
 
-   
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -73,8 +66,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you wantto use JACK applications, uncomment this
-    #jack.enable =  true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -89,53 +82,30 @@
     isNormalUser = true;
     description = "jakeonyx";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh
     packages = with pkgs; [
     #  thunderbird
     ];
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  #programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [    
-vim-full # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+  environment.systemPackages = with pkgs; [
+   vim
    git
-zsh
-lazygit
-xclip
-alacritty
-#Software
-brave
-keepassxc
-telegram-desktop
-#languages
-go
-rustup
-python3
-nodejs
-# Development Tools
-docker
-docker-compose
-vscode
-# GNOME tools
-gnome-tweaks
-gnomeExtensions.dash-to-dock
-gnomeExtensions.clipboard-indicator
-copyq
-
+   wget
+   curl
+   brave
+   telegram-desktop
   ];
-#Enable Docker
- virtualisation.docker.enable = true;
-#Zsh default shell
-programs.zsh.enable = true;
-users.defaultUserShell = pkgs.zsh;
- # Some programs need SUID wrappers, can be configured further or are
+
+  # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
@@ -146,8 +116,8 @@ users.defaultUserShell = pkgs.zsh;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
+  services.openssh.enable = true;
+  services.docker.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
