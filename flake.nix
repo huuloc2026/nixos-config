@@ -26,7 +26,7 @@
         jakeonyx = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-          ./home/jakeonyx/home.nix
+          ./jakeonyx/home.nix
         ];
       };
     };
