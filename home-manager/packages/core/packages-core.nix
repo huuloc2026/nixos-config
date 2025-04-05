@@ -1,4 +1,4 @@
-# packages.nix
+# packages-core.nix
 with pkgs; [
   eza
   bat

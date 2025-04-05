@@ -2,7 +2,7 @@
 let 
    myAliases = import ./packages/core/aliases.nix;
    languagesCore = import ./packages/core/languages.nix;
-   corePackages = import ./packages/core/packages.nix;
+   corePackages = import ./packages/core/packages-core.nix;
    coreSoftWare = import ./packages/core/software.nix;
 in
 {
