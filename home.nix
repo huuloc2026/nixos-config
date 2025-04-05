@@ -26,16 +26,7 @@ in
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    zsh
-neovim
-vscode
-go
-rustup
-nodejs
-pnpm
-bat 
-eza
-zellij
+    # pkgs.hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -85,14 +76,15 @@ zellij
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-  programs.zsh= {
+ programs.zsh= {
     enable = true;
     shellAliases =  myAliases; 
-promptInit= = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #promptInit= = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     oh-my-zsh.enable = true;
     oh-my-zsh.plugins = [ "git" "node" "docker" ];
-enableSyntaxHighlighting = true;
+    #enableSyntaxHighlighting = true;
 };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
