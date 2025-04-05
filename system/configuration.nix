@@ -108,7 +108,6 @@ programs.zsh.enable = true;
   curl
   telegram-desktop
   brave
-
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 let 
-   myAliases = import ./packages/core/aliases.nix;
-   languagesCore = import ./packages/core/languages.nix;
-   corePackages = import ./packages/core/packages-core.nix;
-   coreSoftWare = import ./packages/core/software.nix;
+  myAliases = import ./packages/core/aliases.nix;
+  languagesCore = import ./packages/core/languages.nix;
+  corePackages = import ./packages/core/packages-core.nix;
+  coreSoftWare = import ./packages/core/software.nix;
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -23,9 +23,9 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-     corePackages
-     languagesCore
-     coreSoftWare
+    corePackages
+    languagesCore
+    coreSoftWare
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
