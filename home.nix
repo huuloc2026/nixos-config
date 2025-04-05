@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let 
   myAliases = {
+    z = "echo Helllo World from Jake Onyx";
     c = "clear";
       ll = "ls -l";
       ".." = "cd ..";
