@@ -6,6 +6,8 @@
   # Core 
   tree
   eza
+  unzip
+  zip
   bat
   fd
   htop
