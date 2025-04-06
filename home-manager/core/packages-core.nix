@@ -36,8 +36,7 @@
 
   #extension
   gnome-tweaks  # GNOME Tweaks
-  gnomeExtensions.dash-to-dock  
-  gnomeExtensions.gnome-shell-extension-clipboard-indicator
+  gnomeExtensions.clipboard-indicator
   #Software
   vscode
   telegram-desktop
