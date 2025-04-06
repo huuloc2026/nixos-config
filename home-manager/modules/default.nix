@@ -5,5 +5,6 @@
     ./bat/bat.nix
     ./alacritty/alacritty.nix
     ./git/git.nix
+    ./starship/starship.nix
   ];
 }

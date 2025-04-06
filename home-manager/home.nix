@@ -10,7 +10,8 @@ in
 
   home.stateVersion = "24.11"; 
 
-  
+
+
   #home.packages = corePackages;
 
   # home.file = {
@@ -32,6 +33,8 @@ in
 
   # home.sessionVariables = {
   # };
+
+  home.file.".config/starship.toml".source = ./modules/starship/starship.toml;
 
 
   # Let Home Manager install and manage itself.

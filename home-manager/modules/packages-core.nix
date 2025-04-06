@@ -24,6 +24,8 @@
   wget
   cmake
 
+  (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  
   # zsh-syntax-highlighting
   # zsh-autosuggestions
   # zsh-autocomplete
