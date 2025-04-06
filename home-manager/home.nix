@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let 
   myAliases = import ./core/aliases.nix;
-  corePackages = import ./core/packages-core.nix;
+  corePackages = import ./core/packages-core.nix { inherit pkgs; };
 in
 {
 

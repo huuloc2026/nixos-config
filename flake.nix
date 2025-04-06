@@ -10,7 +10,6 @@
   outputs = { self, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
-
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -18,7 +17,7 @@
       };
     };
 
-    lib = pkgs.lib;
+    lib = nixpkgs.lib;
 
   in {
     nixosConfigurations = {

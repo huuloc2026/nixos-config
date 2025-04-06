@@ -1,8 +1,8 @@
 # packages-core.nix
-{ pkgs, ... }: {
-  nixpkgs.config.allowUnfree = true;
+{ pkgs, ... }: 
+  #nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
+  with pkgs; [
   # Core 
   eza
   bat
@@ -16,21 +16,19 @@
   tree
   ripgrep-all
   docker
-  docker compose
+  docker-compose
   curl
   jq
   zellij
   pnpm
   wget
-  tmux
-  make
+  cmake
 
   #Languages
   rustc
   go
   typescript
   python3
-  java
   nodejs
   ruby
   rust-analyzer
@@ -41,5 +39,5 @@
   telegram-desktop
   brave
   postman
-];
-}
+]
+

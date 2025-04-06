@@ -10,10 +10,10 @@
       ./hardware-configuration.nix
     ];
 
-#Zsh default shell
-environment.shells = with pkgs; [ zsh ];
-users.defaultUserShell = pkgs.zsh;
-programs.zsh.enable = true;
+  #Zsh default shell
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
