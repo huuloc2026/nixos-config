@@ -1,5 +1,7 @@
 # languages.nix
-with pkgs; [
+{ config, pkgs, ... }:
+{
+  with pkgs; [
   rustc
   go
   typescript
@@ -10,3 +12,4 @@ with pkgs; [
   rust-analyzer
   go-tools
 ]
+}
