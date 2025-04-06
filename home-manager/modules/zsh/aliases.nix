@@ -22,7 +22,7 @@ let
 
 
     #Personal Shortcut
-    mg= "brave https://github.com/huuloc2026?tab=repositories";
+    mg="brave 'https://github.com/huuloc2026?tab=repositories'";
 
     # # Git aliases
     # gs = "git status";       # Check the status of the Git repository
