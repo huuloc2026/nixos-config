@@ -23,7 +23,7 @@
   in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
-        inherit system;
+        specialArgs = { inherit system; };
         modules = [
           ./host/configuration.nix
         ];
