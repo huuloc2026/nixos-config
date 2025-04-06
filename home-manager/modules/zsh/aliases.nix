@@ -11,6 +11,7 @@ let
     rm = "rm -i";            # Make `rm` interactive (ask for confirmation)
 
     # Home Manager alias switch
+    gopro = "cd ~/nixos-config";
     swhm = "cd ~/nixos-config && home-manager switch --flake .#jakeonyx"; #alias switch Home Mangaer
     # NixOS alias switch
     syssw = "sudo nixos-rebuild switch";  # Switch system configuration for NixOS
