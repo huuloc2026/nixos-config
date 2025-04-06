@@ -23,9 +23,10 @@
   pnpm
   wget
   cmake
+  neofetch
 
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  
+
   # zsh-syntax-highlighting
   # zsh-autosuggestions
   # zsh-autocomplete
