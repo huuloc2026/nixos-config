@@ -4,8 +4,8 @@ let
     c = "clear";             # Clear screen
     ll = "ls -l";            # List files with detailed info
     la = "ls -la";           # List all files, including hidden files
-    .. = "cd ..";            # Go up one directory
-    .... = "cd ../../";       # Go up two directories
+    ".." = "cd ..";            # Go up one directory
+    "...." = "cd ../../";       # Go up two directories
     gh = "cd ~/ && echo 'Went back home - Jake Onyx' ";           # Go to home directory
     grep = "grep --color=auto"; # Enable color in grep outputs
     rm = "rm -i";            # Make `rm` interactive (ask for confirmation)
