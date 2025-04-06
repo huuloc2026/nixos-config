@@ -34,6 +34,10 @@
   rust-analyzer
   go-tools
 
+  #extension
+  gnome-tweaks  # GNOME Tweaks
+  gnomeExtensions.dash-to-dock  
+  gnomeExtensions.gnome-shell-extension-clipboard-indicator
   #Software
   vscode
   telegram-desktop
