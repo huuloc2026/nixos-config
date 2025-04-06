@@ -64,6 +64,20 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+
+
+  # Enable IBus (Intelligent Input Bus) 
+  services.xserver.inputMethod = "ibus";
+  # Configure IBus (input method framework)
+  services.xserver.displayManager.sessionCommands = ''
+    export GTK_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export QT_IM_MODULE=ibus
+    ibus-daemon -d -x
+  '';
+  # Additional IBus configurations (Optional)
+  ibus.enable = true;
+
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -96,6 +110,8 @@
   # Install firefox.
   #programs.firefox.enable = true;
 
+  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -107,7 +123,9 @@
   wget
   curl
   telegram-desktop
-  brave 
+  brave
+  ibus
+  ibus-bamboo
 
   
   ];

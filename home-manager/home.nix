@@ -17,7 +17,7 @@ in
   # home.file = {
 
   # };
-
+  
   imports = [
     ./modules/default.nix
     #Packages
@@ -28,6 +28,9 @@ in
     ./modules/software.nix
     #Extension
     ./modules/extension.nix
+
+    #Input Method
+    ./modules/i18n/input-method.nix 
 
   ];
 
