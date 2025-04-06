@@ -24,6 +24,10 @@
   wget
   cmake
 
+  # zsh-syntax-highlighting
+  # zsh-autosuggestions
+  # zsh-autocomplete
+  # zsh-history
   
 
   #extension
