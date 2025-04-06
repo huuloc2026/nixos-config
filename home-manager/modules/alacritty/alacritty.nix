@@ -28,7 +28,7 @@
       font = {
         size = 12.0;
         normal = {
-          #family = "JetBrainsMono Nerd Font";
+          family = "JetBrainsMono Nerd Font";
           style = lib.mkForce "Bold";
         };
       };
@@ -55,22 +55,3 @@
     };
   };
 }
-
-# { lib, ... }: {
-#   programs.alacritty = {
-#     enable = true;
-#     settings = {
-#       window = {
-#         opacity = 0.95
-#       }
-
-#       font = {
-#         builtin_box_drawing = true;
-#         normal = {
-#           style = lib.mkForce "Bold";
-#         };
-#       };
-
-#     };
-#   };
-# }

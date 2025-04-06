@@ -9,8 +9,16 @@ vimcmd_symbol = "[❮](green)"
 
 [directory]
 truncation_length = 4
+
+
 # Catppuccin 'lavender'
-style = "bold lavender"
+#style = "bold lavender"
+
+
+[git_status]
+format = "[$state(❯ )]($style) "
+style = "bold green"
+
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]

@@ -6,5 +6,6 @@
     ./alacritty/alacritty.nix
     ./git/git.nix
     ./starship/starship.nix
+    ./zellij/zellij.nix
   ];
 }

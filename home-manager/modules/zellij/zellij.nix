@@ -1,5 +1,5 @@
 {
-programs.starship = {
+programs.zellij = {
   enable = true;
 };
 }

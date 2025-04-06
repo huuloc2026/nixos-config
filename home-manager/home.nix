@@ -35,6 +35,7 @@ in
   # };
 
   home.file.".config/starship.toml".source = ./modules/starship/starship.toml;
+  home.file.".config/zellij/config.kdl".source = ./modules/zellij/config.kdl;
 
 
   # Let Home Manager install and manage itself.
