@@ -2,6 +2,5 @@
 {
   imports= [
     ./zsh/zsh.nix
-    
   ];
 }

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let 
   # myAliases = import ./core/aliases.nix;
-  corePackages = import ./core/packages-core.nix { inherit pkgs; };
+  #corePackages = import ./core/packages-core.nix { inherit pkgs; };
 in
 {
 
@@ -21,6 +21,12 @@ in
     ./modules/default.nix
     #Packages
     ./modules/packages-core.nix
+    #Languages
+    ./modules/languages.nix
+    #Software
+    ./modules/software.nix
+    #Extension
+    ./modules/extension.nix
 
   ];
 
