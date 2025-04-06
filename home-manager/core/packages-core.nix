@@ -4,6 +4,7 @@
 
   with pkgs; [
   # Core 
+  tree
   eza
   bat
   fd
@@ -44,5 +45,6 @@
   telegram-desktop
   brave
   postman
+  keepassxc
 ]
 
