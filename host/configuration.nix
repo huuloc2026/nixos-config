@@ -64,24 +64,26 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-
+  i18n.inputMethod = {
+  enabled = "fcitx5";
+  fcitx5.addons = with pkgs; [ fcitx5-bamboo ];
+  };
 
   # Enable IBus 
-  i18n.inputMethod = {
-    type="ibus";
-    enable = true;
-    ibus.engines = with pkgs.ibus-engines; [
-      bamboo 
-    ];
-  };
-  # Configure IBus (input method framework)
-  services.xserver.displayManager.sessionCommands = ''
-    export GTK_IM_MODULE=ibus
-    export XMODIFIERS=@im=ibus
-    export QT_IM_MODULE=ibus
-  '';
-
-
+  # i18n.inputMethod = {
+  #   type="ibus";
+  #   enable = true;
+  #   ibus.engines = with pkgs.ibus-engines; [
+  #     bamboo 
+  #   ];
+  # };
+  
+  # # Configure IBus (input method framework)
+  # services.xserver.displayManager.sessionCommands = ''
+  #   export GTK_IM_MODULE=ibus
+  #   export XMODIFIERS=@im=ibus
+  #   export QT_IM_MODULE=ibus
+  # '';
 
 
   # Enable sound with pipewire.

@@ -20,6 +20,10 @@ let
     dcd = "docker compose down";         # Docker Compose: stop and remove containers
     dcps = "docker compose ps";          # Docker Compose: list running containers
 
+
+    #Personal Shortcut
+    mg= "brave https://github.com/huuloc2026?tab=repositories";
+
     # # Git aliases
     # gs = "git status";       # Check the status of the Git repository
     # ga = "git add";          # Add files to staging area
