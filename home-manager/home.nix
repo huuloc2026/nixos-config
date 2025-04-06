@@ -10,11 +10,7 @@ in
 
   home.stateVersion = "24.11"; 
 
-  environment.systemPackages = with pkgs; [
-     gnome-tweaks
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.clipboard-indicator
-  ];
+  
   home.packages = corePackages;
 
   # home.file = {
