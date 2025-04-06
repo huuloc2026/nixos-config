@@ -54,29 +54,32 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
-
+  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
 
 
-  # # Enable IBus (Intelligent Input Bus) 
-  # services.xserver.inputMethod = "ibus";
-  # # Configure IBus (input method framework)
+  # Enable IBus 
+  i18n.inputMethod = {
+    type="ibus";
+    enable = true;
+    ibus.engines = with pkgs.ibus-engines; [
+      bamboo 
+    ];
+  };
+  # Configure IBus (input method framework)
   services.xserver.displayManager.sessionCommands = ''
     export GTK_IM_MODULE=ibus
     export XMODIFIERS=@im=ibus
     export QT_IM_MODULE=ibus
-    ibus-daemon -d -x
   '';
-  # # Additional IBus configurations (Optional)
-  # ibus.enable = true;
 
 
 
@@ -126,20 +129,13 @@
   wget
   curl
   telegram-desktop
-  brave
-  ibus  
+  brave  
   ];
   
 
 
 
  
-  i18n.inputMethod = {
-    enabled = "ibus"; 
-    ibus.engines = with pkgs.ibus-engines; [
-      bamboo 
-    ];
-  };
 
 
   
