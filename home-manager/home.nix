@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let 
-  myAliases = import ./core/aliases.nix;
+  # myAliases = import ./core/aliases.nix;
   corePackages = import ./core/packages-core.nix { inherit pkgs; };
 in
 {
@@ -17,23 +17,24 @@ in
 
   # };
 
-
+  imports = [
+    ./modules/zsh/zsh.nix
+  ];
   # home.sessionVariables = {
   # };
 
- programs.zsh= {
-    enable = true;
-    shellAliases = myAliases; 
-    oh-my-zsh.enable = true;
-    oh-my-zsh.plugins = [ "git" "node" "docker" ];
-    initExtra = ''
-      if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-        source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-      fi
-      export PATH="$HOME/.nix-profile/bin:$PATH"
-    '';
-    
-};
+#  programs.zsh= {
+#     enable = true;
+#     shellAliases = myAliases; 
+#     oh-my-zsh.enable = true;
+#     oh-my-zsh.plugins = [ "git" "node" "docker" ];
+#     initExtra = ''
+#       if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+#         source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+#       fi
+#       export PATH="$HOME/.nix-profile/bin:$PATH"
+#     '';
+# };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
