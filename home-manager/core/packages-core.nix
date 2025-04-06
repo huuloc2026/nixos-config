@@ -35,8 +35,10 @@
   go-tools
 
   #extension
-  gnome-tweaks  # GNOME Tweaks
-  gnomeExtensions.clipboard-indicator
+
+  # gnome-tweaks  # GNOME Tweaks
+  # gnomeExtensions.clipboard-indicator
+  # gnomeExtensions.dash-to-dock
   #Software
   vscode
   telegram-desktop

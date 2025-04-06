@@ -11,7 +11,7 @@ let
     rm = "rm -i";            # Make `rm` interactive (ask for confirmation)
 
     # Home Manager alias switch
-    swhm = "home-manager --flake"; #alias switch Home Mangaer
+    swhm = "home-manager switch --flake "; #alias switch Home Mangaer
     # NixOS alias switch
     syssw = "sudo nixos-rebuild switch";  # Switch system configuration for NixOS
   
