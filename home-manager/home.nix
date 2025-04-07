@@ -26,9 +26,11 @@ in
     ./modules/languages.nix
     #Software
     ./modules/software.nix
-    #Extension
+
+    
+    # #Extension
     ./modules/extension/extension.nix
-    #Enable config extension
+    # #Enable config extension
     ./modules/extension/extensionconfig.nix
   ];
 
