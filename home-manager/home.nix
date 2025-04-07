@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
-let 
-  # myAliases = import ./core/aliases.nix;
-  #corePackages = import ./core/packages-core.nix { inherit pkgs; };
-in
+
 {
 
   home.username = "jakeonyx";
@@ -12,11 +9,7 @@ in
 
 
 
-  #home.packages = corePackages;
-
-  # home.file = {
-
-  # };
+  
   
   imports = [
     ./modules/default.nix

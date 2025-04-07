@@ -10,5 +10,7 @@
   brave
   postman
   keepassxc
+  dbeaver-bin
+  redisinsight
 ];
 }
