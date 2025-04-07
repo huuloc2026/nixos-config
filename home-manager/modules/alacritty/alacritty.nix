@@ -47,11 +47,11 @@
       };
 
       # # Cấu hình terminal shell (sử dụng Zellij thay vì shell mặc định)
-      # terminal = {
-      #   shell = {
-      #     program = "/usr/bin/zellij";
-      #   };
-      # };
+      terminal = {
+        shell = {
+          program = "~/.nix-profile/bin/zellij";
+        };
+      };
     };
   };
 }
