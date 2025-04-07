@@ -46,12 +46,13 @@
         };
       };
 
-      # # Cấu hình terminal shell (sử dụng Zellij thay vì shell mặc định)
-      terminal = {
-        shell = {
-          program = "~/.nix-profile/bin/zellij";
-        };
+      
+      
+      terminal.shell = {
+        args = ["new-session"  "-A"  "-D" "-s" "main"];
+        program = "/home/jakeonyx/.nix-profile/bin/zellij";
       };
+      
     };
   };
 }

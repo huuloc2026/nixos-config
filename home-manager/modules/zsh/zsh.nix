@@ -45,9 +45,17 @@ in
       if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
         source "$HOME/.nix-profile/etc/profile.d/nix.sh"
       fi
+
+
       export PATH="$HOME/.nix-profile/bin:$PATH"
 
+      if command -v zellij &> /dev/null && [ -z "$ZELLIJ" ] && [ -t 1 ]; then
+        exec zellij
+      fi
+      
       eval "$(starship init zsh)"
+
+      
     '';
 };
 }
