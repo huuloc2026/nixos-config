@@ -27,7 +27,9 @@ in
     #Software
     ./modules/software.nix
     #Extension
-    ./modules/extension.nix
+    ./modules/extension/extension.nix
+    #Enable config extension
+    ./modules/extension/extensionconfig.nix
   ];
 
 
