@@ -6,6 +6,7 @@ let
     la = "ls -la";           # List all files, including hidden files
     ".." = "cd ..";            # Go up one directory
     "...." = "cd ../../";       # Go up two directories
+    #cat = "bat";
     gh = "cd ~/ && echo 'Went back home - Jake Onyx' ";           # Go to home directory
     grep = "grep --color=auto"; # Enable color in grep outputs
     rm = "rm -i";            # Make `rm` interactive (ask for confirmation)
