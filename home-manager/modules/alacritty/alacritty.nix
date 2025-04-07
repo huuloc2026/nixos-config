@@ -19,12 +19,7 @@
           foreground = "0xcdd6f4";
         };
       };
-
-      # cursor = {
-      #   style = "Block";
-      #   blinking = "On";
-      # };
-
+      
       font = {
         size = 12.0;
         normal = {
@@ -48,10 +43,10 @@
 
       
       
-      terminal.shell = {
-        args = ["new-session"  "-A"  "-D" "-s" "main"];
-        program = "/home/jakeonyx/.nix-profile/bin/zellij";
-      };
+      # terminal.shell = {
+      #   args = ["new-session"  "-A"  "-D" "-s" "main"];
+      #   program = "/${pkgs.zellij}/bin/zellij";
+      # };
       
     };
   };
