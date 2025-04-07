@@ -105,7 +105,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   git   
-  vim-full 
+  vim
+  neovim
   wget
   curl
   telegram-desktop
