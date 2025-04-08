@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
 
   #Software
+  vlc
   vscode
   telegram-desktop
   brave

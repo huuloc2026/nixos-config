@@ -24,6 +24,8 @@
   wget
   cmake
   neofetch
+  unrar
+
 
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
