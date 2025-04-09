@@ -102,8 +102,6 @@
   environment.systemPackages = with pkgs; [
   git
   gcc   
-  vim
-  neovim
   wget
   curl
   telegram-desktop

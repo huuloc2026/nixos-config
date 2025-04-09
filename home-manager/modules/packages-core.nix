@@ -27,6 +27,11 @@
   unrar
 
 
+  vim
+  neovim
+
+
+  #font
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
   # zsh-syntax-highlighting
