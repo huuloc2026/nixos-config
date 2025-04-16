@@ -27,7 +27,6 @@
   unrar
 
 
-  vim
   neovim
 
 
