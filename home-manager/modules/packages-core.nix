@@ -20,7 +20,7 @@
   curl
   jq
   zellij
-  pnpm
+  #pnpm
   wget
   cmake
   neofetch

@@ -8,7 +8,6 @@
   home.stateVersion = "24.11"; 
 
 
-
   
   
   imports = [
@@ -22,7 +21,9 @@
     #Software
     ./modules/software.nix
 
-    
+    #Pnpm config
+ 
+    #./modules/pnpm/pnpm.nix 
     # #Extension
     ./modules/extension/extension.nix
     # #Enable config extension
@@ -34,7 +35,7 @@
   # home.sessionVariables = {
   # };
 
-  home.file.".config/starship.toml".source = ./modules/starship/starship.toml;
+  #home.file.".config/starship.toml".source = ./modules/starship/starship.toml;
   #home.file.".config/zellij/config.kdl".source = ./modules/zellij/config.kdl;
 
 
