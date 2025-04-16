@@ -6,12 +6,15 @@
 
   #Software
   vlc
+  helix
   vscode
   telegram-desktop
   brave
   postman
   keepassxc
   dbeaver-bin
-  redisinsight
+  #redisinsight
+
+
 ];
 }
