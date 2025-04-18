@@ -14,6 +14,7 @@
   ripgrep
   git
   fzf
+  ripgrep
   ripgrep-all
   docker
   docker-compose
