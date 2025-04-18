@@ -22,7 +22,8 @@
   zellij
   #pnpm
   wget
-
+  gnumake
+  gcc
   cmake
   neofetch
   unrar
