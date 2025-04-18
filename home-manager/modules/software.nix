@@ -6,7 +6,6 @@
 
   #Software
   vlc
-  helix
   vscode
   telegram-desktop
   brave

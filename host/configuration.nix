@@ -81,9 +81,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = false;
 
-  
-  
-
   users.users.jakeonyx = {
     isNormalUser = true;
     description = "jakeonyx";
@@ -92,7 +89,6 @@
     #  thunderbird
     ];
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -104,6 +100,7 @@
   gcc   
   wget
   curl
+  neovim
   telegram-desktop
   brave
   docker
@@ -114,7 +111,6 @@
 
   virtualisation.docker.enable = true;
   
-
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }

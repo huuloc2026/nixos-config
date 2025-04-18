@@ -10,8 +10,6 @@
   zip
   bat
   fd
-  htop
-  ripgrep
   git
   fzf
   ripgrep
@@ -23,14 +21,12 @@
   zellij
   #pnpm
   wget
-  gnumake
+  #gnumake
   gcc
   cmake
   neofetch
   unrar
 
-
-  neovim
 
 
   #font
