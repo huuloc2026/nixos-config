@@ -1,0 +1,37 @@
+theme = "tokyonight_moon"
+
+[editor]
+bufferline = "always"
+auto-format = true
+mouse = false
+line-number = "relative"
+# default-yank-register = "+"
+
+[editor.file-picker]
+git-ignore = false
+
+[editor.cursor-shape]
+# insert = "bar"
+# select = "underline"
+
+[keys.normal]
+C-s = ":w!"
+C-w = ":buffer-close"
+C-a = ":reload-all"
+y = [":clipboard-yank","yank"]
+C-v = [":clipboard-paste-before"]
+C-right = [":bn"]
+C-left = [":bp"]
+X = ["extend_line_up", "extend_to_line_bounds"]
+c = "change_selection_noyank"
+
+[keys.insert]
+C-s = [":w!","normal_mode"]
+C-w = [":buffer-close","normal_mode"]
+C-v = [":clipboard-paste-before"]
+C-right = [":bn"]
+C-left = [":bp"]
+
+[keys.select]
+y = [":clipboard-yank","yank"]
+X = ["extend_line_up", "extend_to_line_bounds"]
