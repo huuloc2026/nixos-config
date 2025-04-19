@@ -19,7 +19,6 @@
   curl
   jq
   zellij
-  #pnpm
   wget
   #gnumake
   gcc
@@ -27,16 +26,8 @@
   neofetch
   unrar
 
-
-
   #font
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-
-  # zsh-syntax-highlighting
-  # zsh-autosuggestions
-  # zsh-autocomplete
-  # zsh-history
-  
 
   #extension
 
