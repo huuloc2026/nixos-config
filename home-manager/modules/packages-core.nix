@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
   # Core 
   tree
+  yazi
   xclip
   eza
   unzip
@@ -15,11 +16,8 @@
   fzf
   ripgrep
   ripgrep-all
-  docker
-  docker-compose
   curl
   jq
-  zellij
   wget
   #gnumake
   gcc
@@ -30,6 +28,9 @@
   #font
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
+  zellij
+  docker
+  docker-compose
   #extension
 
   gnome-tweaks

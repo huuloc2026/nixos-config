@@ -12,6 +12,7 @@
   postman
   keepassxc
   dbeaver-bin
+  helix
   #redisinsight
 
 
