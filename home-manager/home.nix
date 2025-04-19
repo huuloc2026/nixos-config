@@ -28,14 +28,14 @@
   # };
 
 
-  home.file.".config/starship.toml" = {
-  source = ./modules/starship/starship.toml;  
-  force = true;
-  };
-  home.file.".config/zellij/config.kdl" = {
-  source = ./modules/zellij/config.kdl;
-  force = true;  
-  };
+  # home.file.".config/starship.toml" = {
+  # source = ./modules/starship/starship.toml;  
+  # force = true;
+  # };
+  # home.file.".config/zellij/config.kdl" = {
+  # source = ./modules/zellij/config.kdl;
+  # force = true;  
+  # };
   # home.file.".config/nvim".source = ./modules/nvim;
   
 
