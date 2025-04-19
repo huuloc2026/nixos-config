@@ -131,6 +131,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  xdg.enable = true;
+
   virtualisation.docker.enable = true;
   
   system.stateVersion = "24.11"; # Did you read the comment?
