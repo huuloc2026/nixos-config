@@ -123,7 +123,8 @@
   ];
 
   imports = [
-    ../modules/desktop/i3.nix
+    ./desktop/i3/i3.nix
+
     ./hardware-configuration.nix
   ];
 
