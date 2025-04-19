@@ -25,8 +25,8 @@
       nixos = lib.nixosSystem {
         specialArgs = { inherit system; };
         modules = [
-          #  ./host/configuration.nix
-          ./host/i3/configuration.nix
+            ./host/configuration.nix
+          #./host/i3/configuration.nix
         ];
       };
     };
@@ -36,7 +36,7 @@
         inherit pkgs;
         modules = [
           # ./home-manager/home.nix
-          ./desktop/i3/i3.nix
+          #./host/i3/desktop/i3/i3.nix
           ./home-manager/home.nix
         ];
       };

@@ -58,7 +58,7 @@
   };
   
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  #services.printing.enable = true;
 
 
   #Input Method Vietnamese
@@ -80,6 +80,9 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = false;
+
+
+  
 
   users.users.jakeonyx = {
     isNormalUser = true;
