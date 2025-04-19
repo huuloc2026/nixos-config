@@ -34,7 +34,8 @@
       jakeonyx = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home-manager/home.nix
+          # ./home-manager/home.nix
+          ./desktop/i3/i3.nix
         ];
       };
     };

@@ -123,15 +123,14 @@
   ];
 
   imports = [
-    ./desktop/i3/i3.nix
-
+    
     ./hardware-configuration.nix
   ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  xdg.enable = true;
+
 
   virtualisation.docker.enable = true;
   
