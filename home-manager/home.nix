@@ -38,10 +38,10 @@
   # };
 
 
-  home.file.".config/nvim" = {
-  source = ./modules/nvim;    
-  force = true;  
-  };
+  # home.file.".config/nvim" = {
+  # source = ./modules/nvim;    
+  # force = true;  
+  # };
 
   # programs.dconf.enable = true;
   
