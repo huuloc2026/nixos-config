@@ -38,6 +38,7 @@
           # ./home-manager/home.nix
           #./host/i3/desktop/i3/i3.nix
           ./home-manager/home.nix
+          
         ];
       };
     };
