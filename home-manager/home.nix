@@ -18,9 +18,9 @@
     #Pnpm config
     #./modules/pnpm/pnpm.nix 
     # #Extension
-    ./modules/extension/extension.nix
-    # #Enable config extension
-    ./modules/extension/extensionconfig.nix
+    # ./modules/extension/extension.nix
+    # # #Enable config extension
+    # ./modules/extension/extensionconfig.nix
   ];
 
 
