@@ -132,3 +132,54 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+[docker_context]
+style = "fg:black bg:#eb9606"
+symbol = "🐳  "
+format = "[](fg:black bg:#eb9606)[$symbol$context]($style)[](fg:#eb9606)"
+
+[git_branch]
+style = "#d8712c"
+format = "[](fg:black bg:$style)[ $symbol$branch](fg:black bg:$style)[](fg:$style)"
+
+[git_commit]
+style = "#d8712c"
+format = "\b[ ](bg:$style)[\\($hash$tag\\)](fg:black bg:$style)[](fg:$style)"
+
+[git_state]
+style = "#d8712c"
+format = "\b[ ](bg:$style)[ \\($state( $progress_current/$progress_total)\\)](fg:black bg:$style)[](fg:$style)"
+
+[git_status]
+style = "#d8712c"
+format = "(\b[ ](bg:$style fg:black)$conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind[](fg:$style))"
+conflicted = "[ ](bold fg:88 bg:#d8712c)[  ${count} ](fg:black bg:#d8712c)"
+staged = "[ $count ](fg:black bg:#d8712c)"
+modified = "[ ${count} ](fg:black bg:#d8712c)"
+renamed = "[ ${count} ](fg:black bg:#d8712c)"
+deleted = "[ ${count} ](fg:black bg:#d8712c)"
+untracked = "[?${count} ](fg:black bg:#d8712c)"
+stashed = "[ ${count} ](fg:black bg:#d8712c)"
+ahead = "[ ${count} ](fg:#523333 bg:#d8712c)"
+behind = "[ ${count} ](fg:black bg:#d8712c)"
+diverged = "[ ](fg:88 bg:#d8712c)[ נּ ](fg:black bg:#d8712c)[ ${ahead_count} ](fg:black bg:#d8712c)[ ${behind_count} ](fg:black bg:#d8712c)"
+
+[golang]
+symbol = "ﳑ "
+style = "fg:black bg:#eb9606"
+format = "[](fg:black bg:#eb9606)[$symbol$version]($style)[](fg:#eb9606)"
+
+
+[nodejs]
+style = "green"
+format = "[](fg:black bg:#eb9606)[$symbol($version)](fg:black bg:#eb9606)[](fg:#eb9606)"
+
+
+[rust]
+style = "fg:black bg:#eb9606"
+format = "[](fg:black bg:#eb9606)[$symbol$version]($style)[](fg:#eb9606)"
+
+[username]
+style_user = "#0370C0"
+style_root = "#C00311"
+format = "[](fg:black bg:$style)[$user](fg:black bg:$style)[](fg:$style)"
