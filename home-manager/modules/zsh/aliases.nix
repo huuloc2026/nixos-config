@@ -7,10 +7,11 @@ let
     ".." = "cd ..";            # Go up one directory
     "...." = "cd ../../";       # Go up two directories
     #cat = "bat";
-    gh = "cd ~/ && echo 'Went back home - Jake Onyx' ";           # Go to home directory
+    gh = "cd ~/ && clear && echo '🦥 Went back home - Jake Onyx' ";           # Go to home directory
     grep = "grep --color=auto"; # Enable color in grep outputs
     rm = "rm -i";            # Make `rm` interactive (ask for confirmation)
 
+    vi = "nvim";
     # Home Manager alias switch
     gopro = "cd ~/nixos-config  && clear && echo 'in Nixos-Config 👨‍💻'";
     cfneovim = "cd ~/nixos-config/home-manager/modules/nvim && clear && echo 'In config neovim space 💤💤💤'";

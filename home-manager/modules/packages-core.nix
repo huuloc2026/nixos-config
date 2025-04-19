@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
   # Core 
   tree
+  xclip
   eza
   unzip
   zip
@@ -25,7 +26,7 @@
   cmake
   neofetch
   unrar
-
+  stylua
   #font
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
