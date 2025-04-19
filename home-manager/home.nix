@@ -36,7 +36,7 @@
   source = ./modules/zellij/config.kdl;
   force = true;  
   };
-  home.file.".config/nvim".source = ./modules/nvim;
+  # home.file.".config/nvim".source = ./modules/nvim;
   
 
 
