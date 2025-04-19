@@ -36,6 +36,7 @@
         modules = [
           # ./home-manager/home.nix
           ./desktop/i3/i3.nix
+          ./home-manager/home.nix
         ];
       };
     };
