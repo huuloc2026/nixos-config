@@ -87,7 +87,7 @@
   users.users.jakeonyx = {
     isNormalUser = true;
     description = "jakeonyx";
-    extraGroups = [ "networkmanager" "wheel" ]; 
+    extraGroups = [ "networkmanager" "wheel" "docker" ]; 
     packages = with pkgs; [
     #  thunderbird
     ];
