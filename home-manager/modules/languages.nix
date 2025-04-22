@@ -8,7 +8,6 @@
   rustc
   go
   typescript
-  # python3
   nodejs
   nodePackages.pnpm
   rust-analyzer

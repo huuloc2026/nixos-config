@@ -12,7 +12,7 @@
     #Languages
     ./modules/languages.nix
     #TODO: remind update. Just have python
-    ./modules/language/python.nix
+    ./modules/language/default.nix
 
 
     #Software
