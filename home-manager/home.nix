@@ -5,16 +5,20 @@
   home.username = "jakeonyx";
   home.homeDirectory = "/home/jakeonyx";
   home.stateVersion = "24.11"; 
-
   imports = [
     ./modules/default.nix
     #Packages
     ./modules/packages-core.nix
     #Languages
     ./modules/languages.nix
+    #TODO: remind update. Just have python
+    ./modules/language/python.nix
+
+
     #Software
     ./modules/software.nix
 
+    
     #Pnpm config
     #./modules/pnpm/pnpm.nix 
     # #Extension

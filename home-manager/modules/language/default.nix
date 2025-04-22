@@ -1,0 +1,9 @@
+
+{config, ... }:
+{  
+  import = [
+    ./python.nix
+  ];
+}
+ 
+  
