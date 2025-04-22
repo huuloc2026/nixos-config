@@ -100,8 +100,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   git
-  
-stylua  
+  stylua
+  gnumake
+  cmake 
   gcc   
   wget
   curl
