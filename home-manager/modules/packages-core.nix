@@ -24,7 +24,6 @@
   cmake
   neofetch
   unrar
-  stylua
   #font
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
