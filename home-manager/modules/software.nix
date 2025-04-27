@@ -12,7 +12,7 @@
   postman
   keepassxc
   dbeaver-bin
-  helix
+  anki
   #redisinsight
 
 
