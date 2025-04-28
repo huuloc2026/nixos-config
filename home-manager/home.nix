@@ -13,8 +13,6 @@
     ./modules/languages.nix
     #TODO: remind update. Just have python
     ./modules/language/default.nix
-
-
     #Software
     ./modules/software.nix
 

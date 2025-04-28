@@ -26,7 +26,6 @@
         specialArgs = { inherit system; };
         modules = [
             ./host/configuration.nix
-          #./host/i3/configuration.nix
         ];
       };
     };
