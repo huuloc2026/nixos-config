@@ -1,10 +1,15 @@
 { config, pkgs, ... }:
 
-{
+{ 
+
 
   home.username = "jakeonyx";
   home.homeDirectory = "/home/jakeonyx";
   home.stateVersion = "24.11"; 
+  
+  gtk.enable = true;
+  qt.enable = true;
+
   imports = [
     ./modules/default.nix
     #Packages
