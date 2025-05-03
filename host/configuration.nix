@@ -60,7 +60,7 @@
   services.desktopManager.plasma6.enable = true;
 
   # Enable Wayland for sddm
-  services.displayManager.sddm.wayland.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -76,14 +76,13 @@
   i18n.inputMethod = {
   enabled = "fcitx5";
   fcitx5.addons = with pkgs; [ fcitx5-bamboo ];
-  };
+  }; 
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     #jack.enable = true;
