@@ -13,6 +13,8 @@
   keepassxc
   dbeaver-bin
   anki
+  # teams
+  mongodb-compass
   #redisinsight
 
 
