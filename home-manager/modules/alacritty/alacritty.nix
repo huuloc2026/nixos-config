@@ -31,7 +31,7 @@
 
       window = {
         opacity = 0.95;
-        decorations = "None";
+        
         dimensions = {
           columns = 100;
           lines = 30;
