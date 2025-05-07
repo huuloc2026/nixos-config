@@ -9,9 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-
-      # #for xdce
-      # ./xfce/pkgxfce.nix
     ];
 
   #Zsh default shell
@@ -29,7 +26,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  networking.firewall.allowedTCPPorts = [ 3001 ];
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
 
