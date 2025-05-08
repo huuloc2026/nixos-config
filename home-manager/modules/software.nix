@@ -19,8 +19,8 @@
   mongodb-compass
   #redisinsight
 
-  # code-cursor
-  # windsurf
+  code-cursor
+ 
 
 
 ];
