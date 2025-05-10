@@ -25,7 +25,6 @@ cat <<EOF >> "$ZSHRC"
 # Plugin configs
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 EOF
 
 chsh -s $(which zsh)

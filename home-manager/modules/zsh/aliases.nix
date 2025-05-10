@@ -14,6 +14,7 @@ let
     vi = "nvim";
     # Home Manager alias switch
     gopro = "cd ~/nixos-config  && clear && echo 'in Nixos-Config 👨‍💻'";
+    nf="cd ~/NextWaves  && clear && echo 'NextWaves ༄༄'";
     cfneovim = "cd ~/nixos-config/home-manager/modules/nvim && clear && echo 'In config neovim space 💤💤💤'";
     swhm = "cd ~/nixos-config && home-manager switch --flake .#jakeonyx"; #alias switch Home Mangaer
     # NixOS alias switch
