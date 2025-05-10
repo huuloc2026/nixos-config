@@ -32,9 +32,6 @@
   docker-compose
   #extension
 
-  gnome-tweaks
-  gnomeExtensions.dash-to-dock
-  gnomeExtensions.clipboard-indicator
 
 ];
 }

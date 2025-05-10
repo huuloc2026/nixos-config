@@ -20,6 +20,8 @@
   #redisinsight
 
   code-cursor
+
+  # sublime
  
 
 

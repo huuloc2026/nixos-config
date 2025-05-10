@@ -6,8 +6,9 @@
 
   #Languages
   python3Full
-   python312Packages.pyautogui
+  python312Packages.pyautogui
   python312Packages.mouseinfo
+  # python312Packages.socketio
   scrot 
   # python3-tk
   # python3-dev 
