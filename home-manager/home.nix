@@ -16,7 +16,7 @@
     ./modules/packages-core.nix
     #Languages
     ./modules/languages.nix
-    #TODO: remind update. Just have python
+    #TODO: remind update. Just have python/go
     ./modules/language/default.nix
     #Software
     ./modules/software.nix

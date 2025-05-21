@@ -6,11 +6,9 @@
 
   #Languages
   rustc
-  go
   typescript
   nodejs
   nodePackages.pnpm
   rust-analyzer
-  go-tools
 ];
 }
