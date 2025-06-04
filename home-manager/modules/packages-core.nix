@@ -24,6 +24,7 @@
   cmake
   neofetch
   unrar
+  libreoffice
   #font
   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
 
