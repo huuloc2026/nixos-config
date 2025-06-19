@@ -1,0 +1,44 @@
+# === Git ===
+alias gs='git status'
+alias gc='git commit -m'
+alias gp='git push'
+
+# === Directory Navigation ===
+alias ..='cd ..'
+alias ....='cd ../../'
+alias dev='cd ~/Projects'
+alias gh='cd ~ && clear && echo "🦥 Went back home - Jake Onyx"'
+
+# === LS & Clear ===
+alias ll='ls -alF'
+alias la='ls -la'
+alias c='clear'
+
+# === Safer Commands ===
+alias rm='rm -i'
+alias grep='grep --color=auto'
+
+# === Editors ===
+alias vi='nvim'
+
+# === NixOS ===
+# alias gopro='cd ~/nixos-config && clear && echo "in Nixos-Config 👨‍💻"'
+# alias cfneovim='cd ~/nixos-config/home-manager/modules/nvim && clear && echo "In config neovim space 💤💤💤"'
+# alias swhm='cd ~/nixos-config && home-manager switch --flake .#jakeonyx'
+# alias syssw='sudo nixos-rebuild switch'
+
+# === Docker ===
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
+alias dcps='docker compose ps'
+
+# === Personal Shortcut ===
+alias mg='brave "https://github.com/huuloc2026?tab=repositories"'
+
+
+alias ls='exa --icons'
+alias cat='bat'
+alias du='dust'
+alias ps='procs'
+alias grep='rg'
+alias find='fd'
