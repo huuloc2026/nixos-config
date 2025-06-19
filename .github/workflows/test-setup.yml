@@ -1,0 +1,23 @@
+name: Test Dev Setup Script
+
+on:
+  push:
+    paths:
+      - 'setup-dev-env.sh'
+      - '.github/workflows/test-setup.yml'
+  pull_request:
+
+jobs:
+  test-setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Make script executable
+        run: chmod +x setup-dev-env.sh
+
+      - name: Run setup script (simulation)
+        run: |
+          sudo bash setup-dev-env.sh

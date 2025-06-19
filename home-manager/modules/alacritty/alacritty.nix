@@ -15,13 +15,13 @@
           yellow = "0xf9e2af";
         };
         primary = {
-          background = "0x1e1e2e";
-          foreground = "0xcdd6f4";
+          background = "0x000000";
+          foreground = "0xc2fdbb";
         };
       };
       
       font = {
-        size = 12.0;
+        size = 10.0;
         normal = {
           family = "JetBrainsMono Nerd Font";
           style = lib.mkForce "Bold";
@@ -42,12 +42,6 @@
         };
       };
 
-      
-      
-      # terminal.shell = {
-      #   args = ["new-session"  "-A"  "-D" "-s" "main"];
-      #   program = "/${pkgs.zellij}/bin/zellij";
-      # };
       
     };
   };
