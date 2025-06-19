@@ -230,7 +230,41 @@ EOF
 # Finalizing
 # ----------------------------
 echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/.cargo/bin' >> ~/.zshrc
-echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/.cargo/bin' >> ~/.bashrc
+
 echo 'source ~/.profile' >> ~/.zshrc
 
 echo "✅ Done! Please restart your terminal or run 'source ~/.zshrc'"
+
+
+echo "📦 Checking installed versions..."
+
+echo "🔧 Git: $(git --version)"
+echo "🌐 Curl: $(curl --version | head -n1)"
+echo "📥 Wget: $(wget --version | head -n1)"
+echo "🧰 Build Tools: $(gcc --version | head -n1)"
+echo "🐍 Python: $(python3 --version)"
+echo "📦 Pip: $(pip3 --version)"
+echo "🔄 Node: $(node -v)"
+echo "📦 NPM: $(npm -v)"
+echo "🦫 Go: $(go version)"
+echo "🦀 Rust: $(rustc --version)"
+echo "📦 Cargo: $(cargo --version)"
+echo "🐳 Docker: $(docker --version)"
+echo "🐙 Docker Compose: $(docker compose version)"
+echo "💻 Zsh: $(zsh --version)"
+echo "🖋️ Neovim: $(nvim --version | head -n1)"
+echo "🔠 Alacritty: $(alacritty --version)"
+echo "📦 Helix: $(hx --version)"
+echo "🧱 Zellij: $(zellij --version)"
+echo "🐈 bat: $(bat --version)"
+echo "🔍 ripgrep: $(rg --version | head -n1)"
+echo "🔎 fzf: $(fzf --version)"
+echo "📁 exa: $(exa --version)"
+echo "📊 bottom: $(btm --version)"
+echo "⚙️ just: $(just --version)"
+echo "📚 tokei: $(tokei --version)"
+echo "📈 hyperfine: $(hyperfine --version)"
+echo "🔀 procs: $(procs --version)"
+echo "🌍 gh (GitHub CLI): $(gh --version | head -n1)"
+
+echo "✅ All tool versions checked."
