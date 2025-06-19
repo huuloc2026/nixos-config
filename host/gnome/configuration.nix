@@ -80,7 +80,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = false;
-
+  
   users.users.jakeonyx = {
     isNormalUser = true;
     description = "jakeonyx";

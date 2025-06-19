@@ -100,6 +100,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -115,7 +116,10 @@
   telegram-desktop
   brave
   docker
+  vscode
 
+
+  libsecret
   pkg-config
   libGL
   xorg.libX11
@@ -127,7 +131,7 @@
  
 
   ];
-
+  
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
