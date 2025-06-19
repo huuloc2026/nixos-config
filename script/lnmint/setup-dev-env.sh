@@ -7,27 +7,23 @@ echo "🛠️  Setting up Developer Environment on Linux Mint..."
 # Update system
 sudo apt update && sudo apt upgrade -y
 
-
 # ----------------------------
 # Install Essential Packages
 # ----------------------------
 sudo apt install -y curl wget git build-essential unzip \
   zsh gnupg lsb-release ca-certificates \
-   fzf fonts-firacode \
+  fzf fonts-firacode \
   python3 python3-pip python3-venv cmake pkg-config \
   libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev
 
 # NVM (optional for node version switching)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Add to ~/.zshrc
-echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
-echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
-
-
+if [ ! -d "$HOME/.nvm" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+fi
 
 # Git config
 git config --global user.name "HuuLoc"
@@ -41,26 +37,25 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # ----------------------------
-# Python 3 & pip
-# ----------------------------
-sudo apt install -y python3 python3-pip python3-venv
-
-# ----------------------------
 # Go (latest from official)
 # ----------------------------
 GO_VERSION=$(curl -s https://go.dev/VERSION?m=text)
-wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
-rm ${GO_VERSION}.linux-amd64.tar.gz
+if ! go version | grep -q "$GO_VERSION"; then
+  wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz
+  sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz
+  echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
+  rm ${GO_VERSION}.linux-amd64.tar.gz
+fi
 
 # ----------------------------
 # Rust (via rustup)
 # ----------------------------
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-source "$HOME/.cargo/env"
-echo 'source $HOME/.cargo/env' >> ~/.zshrc
-echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.profile
+if ! rustc --version &>/dev/null; then
+  curl https://sh.rustup.rs -sSf | sh -s -- -y
+  source "$HOME/.cargo/env"
+  echo 'source $HOME/.cargo/env' >> ~/.zshrc
+  echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.profile
+fi
 
 # ----------------------------
 # Docker
@@ -75,20 +70,29 @@ sudo apt install -y zsh
 chsh -s $(which zsh)
 
 # Oh My Zsh install
-export RUNZSH=no
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  export RUNZSH=no
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Powerlevel10k
 ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
-echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
+if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    ${ZSH_CUSTOM}/themes/powerlevel10k
+  sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+  echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
+fi
+
 # zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions \
-  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting \
-  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-autosuggestions" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions \
+    ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
+fi
+if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting \
+    ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
+fi
 
 # Auto add plugins to .zshrc
 sed -i '/^plugins=/c\plugins=(git zsh-autosuggestions zsh-syntax-highlighting)' ~/.zshrc
@@ -105,77 +109,85 @@ sudo apt install -y fonts-firacode
 # ----------------------------
 # VS Code
 # ----------------------------
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" \
-  > /etc/apt/sources.list.d/vscode.list'
-sudo apt update
-sudo apt install -y code
-rm packages.microsoft.gpg
+if ! code --version &>/dev/null; then
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" \
+    > /etc/apt/sources.list.d/vscode.list'
+  sudo apt update
+  sudo apt install -y code
+  rm packages.microsoft.gpg
+fi
 
 # ----------------------------
 # Brave Browser
 # ----------------------------
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg \
-  https://brave.com/signing-key.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] \
-  https://brave-browser-apt-release.s3.brave.com/ stable main" | \
-  sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install -y brave-browser
+if ! brave-browser --version &>/dev/null; then
+  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg \
+    https://brave.com/signing-key.gpg
+  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] \
+    https://brave-browser-apt-release.s3.brave.com/ stable main" | \
+    sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+  sudo apt update
+  sudo apt install -y brave-browser
+fi
 
 # ----------------------------
 # Telegram Desktop
 # ----------------------------
 sudo apt install -y telegram-desktop
 
-
 # ----------------------------
 # GitHub CLI
 # ----------------------------
-
-type -p curl >/dev/null || sudo apt install curl -y
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
-  sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
-  https://cli.github.com/packages stable main" | \
-  sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install -y gh
-
-
-
+if ! gh --version &>/dev/null; then
+  type -p curl >/dev/null || sudo apt install curl -y
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
+    sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
+    https://cli.github.com/packages stable main" | \
+    sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sudo apt update
+  sudo apt install -y gh
+fi
 
 # ----------------------------
 # Alacritty (GPU-accelerated terminal)
 # ----------------------------
-sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
-cargo install --git https://github.com/alacritty/alacritty
-echo 'alias term="alacritty"' >> ~/.zsh_aliases
+if ! alacritty --version &>/dev/null; then
+  sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+  cargo install --git https://github.com/alacritty/alacritty
+  echo 'alias term="alacritty"' >> ~/.zsh_aliases
+fi
 
 # ----------------------------
 # Zellij (Terminal multiplexer like tmux)
 # ----------------------------
-cargo install zellij
-echo 'alias zj="zellij"' >> ~/.zsh_aliases
+if ! zellij --version &>/dev/null; then
+  cargo install zellij
+  echo 'alias zj="zellij"' >> ~/.zsh_aliases
+fi
 
 # ----------------------------
 # Helix Editor
 # ----------------------------
 HELIX_VERSION="23.10"
-wget https://github.com/helix-editor/helix/releases/download/${HELIX_VERSION}/helix-${HELIX_VERSION}-x86_64.AppImage -O ~/helix.AppImage
-chmod +x ~/helix.AppImage
-sudo mv ~/helix.AppImage /usr/local/bin/hx
-
+if ! hx --version &>/dev/null; then
+  wget https://github.com/helix-editor/helix/releases/download/${HELIX_VERSION}/helix-${HELIX_VERSION}-x86_64.AppImage -O ~/helix.AppImage
+  chmod +x ~/helix.AppImage
+  sudo mv ~/helix.AppImage /usr/local/bin/hx
+fi
 
 # ----------------------------
 # Neovim (Latest via PPA)
 # ----------------------------
-sudo add-apt-repository ppa:neovim-ppa/stable -y
-sudo apt update
-sudo apt install -y neovim
-echo 'alias vi="nvim"' >> ~/.zsh_aliases
+if ! nvim --version &>/dev/null; then
+  sudo add-apt-repository ppa:neovim-ppa/stable -y
+  sudo apt update
+  sudo apt install -y neovim
+  echo 'alias vi="nvim"' >> ~/.zsh_aliases
+fi
 
 # ----------------------------
 # Other
@@ -231,40 +243,44 @@ EOF
 # ----------------------------
 echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/.cargo/bin' >> ~/.zshrc
 
-echo 'source ~/.profile' >> ~/.zshrc
-
-echo "✅ Done! Please restart your terminal or run 'source ~/.zshrc'"
-
+echo 'source ~/.profile' >> ~/.zshrc| head -n1)"
+rsion | head -n1)"
+echo "✅ Done! Please restart your terminal or run 'source ~/.zshrc'"gcc --version | head -n1)"
+--version)"
 
 echo "📦 Checking installed versions..."
 
 echo "🔧 Git: $(git --version)"
-echo "🌐 Curl: $(curl --version | head -n1)"
+echo "🌐 Curl: $(curl --version | head -n1)"n)"
 echo "📥 Wget: $(wget --version | head -n1)"
 echo "🧰 Build Tools: $(gcc --version | head -n1)"
-echo "🐍 Python: $(python3 --version)"
+echo "🐍 Python: $(python3 --version)"r compose version)"
 echo "📦 Pip: $(pip3 --version)"
-echo "🔄 Node: $(node -v)"
+echo "🔄 Node: $(node -v)"ion | head -n1)"
 echo "📦 NPM: $(npm -v)"
-echo "🦫 Go: $(go version)"
-echo "🦀 Rust: $(rustc --version)"
+echo "🦫 Go: $(go version)""
+echo "🦀 Rust: $(rustc --version)"sion)"
 echo "📦 Cargo: $(cargo --version)"
-echo "🐳 Docker: $(docker --version)"
+echo "🐳 Docker: $(docker --version)"| head -n1)"
 echo "🐙 Docker Compose: $(docker compose version)"
 echo "💻 Zsh: $(zsh --version)"
 echo "🖋️ Neovim: $(nvim --version | head -n1)"
 echo "🔠 Alacritty: $(alacritty --version)"
-echo "📦 Helix: $(hx --version)"
-echo "🧱 Zellij: $(zellij --version)"
-echo "🐈 bat: $(bat --version)"
-echo "🔍 ripgrep: $(rg --version | head -n1)"
-echo "🔎 fzf: $(fzf --version)"
-echo "📁 exa: $(exa --version)"
-echo "📊 bottom: $(btm --version)"
-echo "⚙️ just: $(just --version)"
-echo "📚 tokei: $(tokei --version)"
-echo "📈 hyperfine: $(hyperfine --version)"
-echo "🔀 procs: $(procs --version)"
-echo "🌍 gh (GitHub CLI): $(gh --version | head -n1)"
+echo "📦 Helix: $(hx --version)"echo "📚 tokei: $(tokei --version)"
+echo "🧱 Zellij: $(zellij --version)"ersion)"
+echo "🐈 bat: $(bat --version)"echo "🔀 procs: $(procs --version)"
+
+
+
+
+
+
+
+
+
+
+
+
+echo "✅ All tool versions checked."echo "🌍 gh (GitHub CLI): $(gh --version | head -n1)"echo "🔀 procs: $(procs --version)"echo "📈 hyperfine: $(hyperfine --version)"echo "📚 tokei: $(tokei --version)"echo "⚙️ just: $(just --version)"echo "📊 bottom: $(btm --version)"echo "📁 exa: $(exa --version)"echo "🔎 fzf: $(fzf --version)"echo "🔍 ripgrep: $(rg --version | head -n1)"echo "🌍 gh (GitHub CLI): $(gh --version | head -n1)"
 
 echo "✅ All tool versions checked."
