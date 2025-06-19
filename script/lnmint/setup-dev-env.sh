@@ -7,6 +7,16 @@ echo "🛠️  Setting up Developer Environment on Linux Mint..."
 # Update system
 sudo apt update && sudo apt upgrade -y
 
+
+# ----------------------------
+# Install Essential Packages
+# ----------------------------
+sudo apt install -y curl wget git build-essential unzip \
+  zsh gnupg lsb-release ca-certificates \
+   fzf fonts-firacode \
+  python3 python3-pip python3-venv cmake pkg-config \
+  libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev
+
 # NVM (optional for node version switching)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
@@ -17,8 +27,7 @@ export NVM_DIR="$HOME/.nvm"
 echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
 echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
 
-# Essential tools
-sudo apt install -y curl wget git build-essential fzf bat ripgrep zsh unzip tmux neofetch htop gnupg lsb-release ca-certificates software-properties-common
+
 
 # Git config
 git config --global user.name "HuuLoc"
@@ -70,6 +79,7 @@ export RUNZSH=no
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Powerlevel10k
+ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
@@ -123,7 +133,7 @@ sudo apt install -y telegram-desktop
 # ----------------------------
 # GitHub CLI
 # ----------------------------
-sudo apt install -y telegram-desktop
+
 type -p curl >/dev/null || sudo apt install curl -y
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
   sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
@@ -141,7 +151,7 @@ sudo apt install -y gh
 # Alacritty (GPU-accelerated terminal)
 # ----------------------------
 sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
-cargo install alacritty
+cargo install --git https://github.com/alacritty/alacritty
 echo 'alias term="alacritty"' >> ~/.zsh_aliases
 
 # ----------------------------
@@ -157,7 +167,7 @@ HELIX_VERSION="23.10"
 wget https://github.com/helix-editor/helix/releases/download/${HELIX_VERSION}/helix-${HELIX_VERSION}-x86_64.AppImage -O ~/helix.AppImage
 chmod +x ~/helix.AppImage
 sudo mv ~/helix.AppImage /usr/local/bin/hx
-echo 'alias hx="hx"' >> ~/.zsh_aliases
+
 
 # ----------------------------
 # Neovim (Latest via PPA)
@@ -170,7 +180,51 @@ echo 'alias vi="nvim"' >> ~/.zsh_aliases
 # ----------------------------
 # Other
 # ----------------------------
-cargo install zellij bat exa ripgrep fd-find du-dust bottom hyperfine tokei just git-delta procs
+cargo install bat exa ripgrep fd-find du-dust bottom hyperfine tokei just git-delta procs
+
+# ----------------------------
+# Alias File Management
+# ----------------------------
+touch ~/.zsh_aliases
+if ! grep -Fxq 'source ~/.zsh_aliases' ~/.zshrc; then
+  echo '[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases' >> ~/.zshrc
+fi
+
+# Add useful aliases
+cat <<'EOF' >> ~/.zsh_aliases
+# === Git ===
+alias gs='git status'
+alias gc='git commit -m'
+alias gp='git push'
+
+# === Directory Navigation ===
+alias ..='cd ..'
+alias ....='cd ../../'
+alias dev='cd ~/Projects'
+alias gh='cd ~ && clear && echo "🦥 Went back home - Jake Onyx"'
+
+# === LS & Clear ===
+alias ll='ls -alF'
+alias la='ls -la'
+alias c='clear'
+
+# === Safer Commands ===
+alias rm='rm -i'
+alias grep='grep --color=auto'
+
+# === Editors ===
+alias vi='nvim'
+
+
+# === Docker ===
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
+alias dcps='docker compose ps'
+
+# === Personal Shortcut ===
+alias mg='brave "https://github.com/huuloc2026?tab=repositories"'
+
+EOF
 
 # ----------------------------
 # Finalizing
