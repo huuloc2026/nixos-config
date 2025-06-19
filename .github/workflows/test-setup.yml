@@ -16,8 +16,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Make script executable
-        run: chmod +x setup-dev-env.sh
+        run: chmod +x ./script/lnmint/setup-dev-env.sh
 
       - name: Run setup script (simulation)
         run: |
-          sudo bash setup-dev-env.sh
+          sudo bash ./script/lnmint/setup-dev-env.sh
