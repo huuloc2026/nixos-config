@@ -104,6 +104,7 @@
   telegram-desktop
   brave
   docker
+  pycharm-professional
   ];
 
   # Enable the OpenSSH daemon.
