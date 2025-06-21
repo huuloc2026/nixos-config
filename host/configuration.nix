@@ -117,6 +117,8 @@
   brave
   docker
   vscode
+  jetbrains.pycharm-professional
+
 
 
   libsecret
