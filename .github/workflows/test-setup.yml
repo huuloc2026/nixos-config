@@ -3,7 +3,7 @@ name: Test Dev Setup Script
 on:
   push:
     paths:
-      - 'setup-dev-env.sh'
+      - 'setup.sh'
       - '.github/workflows/test-setup.yml'
   pull_request:
 
@@ -16,8 +16,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Make script executable
-        run: chmod +x ./script/lnmint/setup-dev-env.sh
+        run: chmod +x ./script/popos/setup.sh
 
       - name: Run setup script (simulation)
         run: |
-          sudo bash ./script/lnmint/setup-dev-env.sh
+          sudo bash ./script/popos/setup.sh

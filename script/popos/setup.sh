@@ -51,6 +51,18 @@ else
   nvm use --lts &>/dev/null || true
 fi
 
+fc-list | grep -i firacode
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+
+# Tải bản patched Nerd Font FiraCode
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
+
+# Giải nén
+unzip FiraCode.zip
+rm FiraCode.zip
+fc-cache -fv
+
 
 
 echo "🐹 Checking Go installation..."
@@ -191,7 +203,6 @@ alias c='clear'
 alias rl='source ~/.zshrc'
 alias dev='cd ~/Projects'
 alias gh='cd ~ && clear && echo "🦥 Went back home - Jake Onyx"'
-
 # Rust Tools
 alias l='eza'
 alias ll='eza -alF --icons --git'
@@ -203,7 +214,6 @@ alias bt='btm'
 alias p='procs'
 alias zj='zellij'
 alias term='alacritty'
-
 # Git
 alias gs='git status'
 alias gl='git log --oneline --graph --decorate'
@@ -211,17 +221,13 @@ alias gc='git commit -m'
 alias ga='git add .'
 alias gpl='git pull'
 alias gps='git push'
-
 # Docker
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
-
 # Jupyter
 alias jl='jupyter lab'
-
 # Personal
 alias mg='brave-browser "https://github.com/huuloc2026?tab=repositories"'
-
 EOF
 
 # Đảm bảo ~/.zshrc sẽ load alias

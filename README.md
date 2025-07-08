@@ -9,7 +9,6 @@ You can still find my configuration [here](https://github.com/huuloc2026/nixos-c
 - 🎨 **Gruvbox Theme**: A perfect blend of vibrant and subtle colors.
 - 🪟 **Hyprland + Waybar**: 10/10 window compositor on Wayland.
 - 🏠 **Home Manager Integration**: lots of stuff configured.
-- 🧇 **Tmux**: with my own hotkeys.
 - 🌟 **Zsh + starship**: Efficient shell setup with lots of aliases. -->
 
 
